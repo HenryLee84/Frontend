@@ -7,6 +7,7 @@ module.exports = {
   ],
   "rules": {
     "semi": ["error", "always"],
+    "no-multi-spaces": ["error"],
   },
   "env": {
     "vue/setup-compiler-macros": true

@@ -1,6 +1,6 @@
 <script setup>
-import axios from 'axios';
 import { ref, unref, watchEffect } from 'vue';
+import openDataService from '../services/openDataService';
 
 const records = ref(null);
 const done = ref(false);
@@ -14,22 +14,19 @@ const words = {
   'CI': '舒適度'
 };
 
-async function getData() {
+function getData() {
   done.value = false;
-  try {
-    // resolve the url value synchronously so it's tracked as a
-    // dependency by watchEffect()
-    const city = unref(selectedCity);
+  // resolve the url value synchronously so it's tracked as a
+  // dependency by watchEffect()
+  const city = unref(selectedCity);
 
-    const response = await axios.get(
-      `https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${authorization}&locationName=${encodeURI(city)}`
-    );
-    // JSON responses are automatically parsed.
-    records.value = response.data.records;
+  openDataService.getWeb({
+    authorization,
+    locationName: city
+  }).then((response) => {
+    records.value = response.records;
     done.value = true;
-  } catch (error) {
-    console.log(error);
-  }
+  });
 }
 
 watchEffect(getData);

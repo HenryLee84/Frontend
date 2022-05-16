@@ -24,7 +24,7 @@ const alreadyLogin = computed(() => {
     >
       <a
         class="navbar-brand"
-        href="#"
+        href="javascript:void(0);"
         @click="router.push({ name: 'home' })"
       >Home Page</a>
     </template>

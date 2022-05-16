@@ -32,7 +32,7 @@ function clickHeader(id) {
         <slot name="header">
           <a
             class="navbar-brand"
-            href="#"
+            href="javascript:void(0);"
             @click="router.push({ name: 'home' })"
           >Home Page</a>
           <button
@@ -59,7 +59,7 @@ function clickHeader(id) {
                 <a
                   class="nav-link"
                   :class="{ active: menu.id === currentMenuId }"
-                  href="#"
+                  href="javascript:void(0);"
                 >{{ menu.text }}</a>
               </li>
             </ul>

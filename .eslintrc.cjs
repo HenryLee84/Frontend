@@ -6,7 +6,7 @@ module.exports = {
     "eslint:recommended"
   ],
   "rules": {
-    "semi": [2, "always"]
+    "semi": ["error", "always"],
   },
   "env": {
     "vue/setup-compiler-macros": true

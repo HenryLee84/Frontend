@@ -17,7 +17,7 @@ function register() {
 
     if (!valid.value)
         return;
-    alert('completed')
+    alert('completed');
 
     // TODO CALL API
 }

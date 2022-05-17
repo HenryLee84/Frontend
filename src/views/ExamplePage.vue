@@ -25,8 +25,10 @@ function getData() {
     authorization,
     locationName: city
   }).then((response) => {
-    records.value = response.records;
-    done.value = true;
+    if (response.status === 200) {
+      records.value = response.data.records;
+      done.value = true;
+    }
   });
 }
 

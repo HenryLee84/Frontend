@@ -1,5 +1,8 @@
 <script setup>
 import { computed, ref } from 'vue';
+import router from '../router';
+import userService from '../services/userService';
+import crypto from '../tools/crypto';
 
 const name = ref('');
 const account = ref('');
@@ -14,12 +17,31 @@ const valid = computed(() => nameValid.value && accountValid.value && password.v
 // 註冊
 function register() {
     validate();
-
     if (!valid.value)
         return;
-    alert('completed');
 
-    // TODO CALL API
+    crypto.digestMessage(password.value)
+          .then(pwd => userService.register({ account: account.value, password: pwd }))
+          .then(response => {
+            if (response.status === 200) {
+              alert('complete');
+
+              // 設定token
+              localStorage.setItem('token', response.data.token);
+
+              router.push({ name: 'home' });
+
+              return;
+            } else if (response.status === 409) {
+              alert('conflict');
+
+              return;
+            } else {
+              alert('error');
+
+              return;
+            }
+          });
 }
 
 // 驗證

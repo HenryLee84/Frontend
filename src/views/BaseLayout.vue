@@ -9,7 +9,7 @@ const currentMenuId = ref(1);
 
 function clickHeader(id) {
   currentMenuId.value = id;
-  switch(id) {
+  switch (id) {
     case 1:
       router.push({ name: 'personalInfo' });
       break;

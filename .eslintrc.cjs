@@ -6,10 +6,13 @@ module.exports = {
     'eslint:recommended'
   ],
   'rules': {
-    'semi': ['error', 'always'],
+    'comma-spacing': ['error'],
+    'keyword-spacing': ['error'],
     'no-multi-spaces': ['error'],
     'quotes': ['error', 'single'],
-    'comma-spacing': ['error']
+    'semi': ['error', 'always'],
+    'space-before-blocks': ['error'],
+    'space-before-function-paren': ['error', 'never'],
   },
   'env': {
     'vue/setup-compiler-macros': true

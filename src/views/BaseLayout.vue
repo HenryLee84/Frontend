@@ -4,7 +4,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
-const headerMenu = reactive([{id: 1, text: 'Personal Info'}, {id: 2, text: 'Example API'}]);
+const headerMenu = reactive([{ id: 1, text: 'Personal Info' }, { id: 2, text: 'Example API' }]);
 const currentMenuId = ref(1);
 
 function clickHeader(id) {

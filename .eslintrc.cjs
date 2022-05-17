@@ -9,6 +9,7 @@ module.exports = {
     'comma-spacing': ['error'],
     'keyword-spacing': ['error'],
     'no-multi-spaces': ['error'],
+    'object-curly-spacing': ['error', 'always'],
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
     'space-before-blocks': ['error'],

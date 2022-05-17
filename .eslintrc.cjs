@@ -8,7 +8,8 @@ module.exports = {
   'rules': {
     'semi': ['error', 'always'],
     'no-multi-spaces': ['error'],
-    'quotes': ['error', 'single']
+    'quotes': ['error', 'single'],
+    'comma-spacing': ['error']
   },
   'env': {
     'vue/setup-compiler-macros': true

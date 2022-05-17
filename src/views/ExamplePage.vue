@@ -9,8 +9,9 @@ const authorization = 'CWB-490218AE-B77C-4780-85A7-556494DAF9CD';
 const cityOptions = ['新北市', '臺北市', '高雄市'];
 const words = {
   'Wx': '氣象',
-  'Pop': '降雨機率',
+  'PoP': '降雨機率',
   'MinT': '最低氣溫',
+  'MaxT': '最高氣溫',
   'CI': '舒適度'
 };
 

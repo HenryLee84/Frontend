@@ -1,11 +1,10 @@
 <script setup>
 import { ref, unref, watchEffect } from 'vue';
-import openDataService from '../services/openDataService';
+import weatherService from '../services/weatherService';
 
 const records = ref(null);
 const done = ref(false);
 const selectedCity = ref('新北市');
-const authorization = 'CWB-490218AE-B77C-4780-85A7-556494DAF9CD';
 const cityOptions = ['新北市', '臺北市', '高雄市'];
 const words = {
   'Wx': '氣象',
@@ -21,8 +20,7 @@ function getData() {
   // dependency by watchEffect()
   const city = unref(selectedCity);
 
-  openDataService.getWeb({
-    authorization,
+  weatherService.getWeb({
     locationName: city
   }).then((response) => {
     if (response.status === 200) {

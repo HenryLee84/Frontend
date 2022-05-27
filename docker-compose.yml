@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  frontend:
+    image: frontend:alpha
+    container_name: frontend
+    restart: always
+    networks:
+      - net
+    ports:
+      - 3001:80
+
+networks:
+  net:
+    name: net
+    external: true

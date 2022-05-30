@@ -30,5 +30,15 @@ export default {
         } catch (error) {
             return error.response;
         }
+    },
+
+    // 更新使用者密碼
+    async UpdateUserPassword(data) {
+        try {
+            const response = await axios.post(`${apiurl}/user/password`, data);
+            return response;
+        } catch (error) {
+            return error.response;
+        }
     }
 };

@@ -7,7 +7,9 @@ function Logout() {
 </script>
 
 <template>
-  home page
+  <p class="display-3">
+    Home Page
+  </p>
 
   <button
     class="btn btn-lg btn-primary"

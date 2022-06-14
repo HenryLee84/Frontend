@@ -53,17 +53,31 @@ userService.getUser()
 </script>
 
 <template>
-  personal info
-  <table v-if="done">
-    <tr
-      v-for="(value, key) in user"
-      :key="key"
-    >
-      <td>{{ key }}</td>
-      <td class="px-4">
-        {{ value }}
-      </td>
-    </tr>
+  <p class="display-3">
+    Personal Info
+  </p>
+
+  <table
+    v-if="done"
+    class="table table-bordered table-hover"
+  >
+    <thead class="table-dark">
+      <tr>
+        <th>column</th>
+        <th>value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        v-for="(value, key) in user"
+        :key="key"
+      >
+        <td>{{ key }}</td>
+        <td>
+          {{ value }}
+        </td>
+      </tr>
+    </tbody>
   </table>
 
   <form

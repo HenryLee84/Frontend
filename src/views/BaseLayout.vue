@@ -27,7 +27,7 @@ function clickHeader(id) {
 <template>
   <header>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container-fluid">
         <slot name="header">
           <a
@@ -70,24 +70,15 @@ function clickHeader(id) {
   </header>
 
   <!-- Begin page content -->
-  <main class="flex-shrink-0">
-    <div class="container">
-      <!-- <h1 class="mt-5">
-        Sticky footer with fixed navbar
+  <main class="pt-3 flex-grow-1 container p-0">
+    <slot>
+      <h1 class="mt-5">
+        Main
       </h1>
-      <p class="lead">
-        Pin a footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added with <code class="small">padding-top: 60px;</code> on the <code class="small">main &gt; .container</code>.
-      </p>
-      <p>Back to <a href="../examples/sticky-footer/">the default sticky footer</a> minus the navbar.</p> -->
-      <slot>
-        <h1 class="mt-5">
-          Main
-        </h1>
-      </slot>
-    </div>
+    </slot>
   </main>
 
-  <footer class="mt-auto py-3 bg-light">
+  <footer class="py-3 bg-light border">
     <div class="container text-center">
       <span class="text-muted">
         Footer
@@ -95,12 +86,3 @@ function clickHeader(id) {
     </div>
   </footer>
 </template>
-
-<style>
-
-main > .container {
-  padding: 60px 15px 0;
-}
-
-
-</style>

@@ -1,10 +1,12 @@
 <script setup>
-import { reactive, ref, toRefs } from 'vue';
+import { inject, reactive, ref, toRefs } from 'vue';
 import userService from '../services/userService';
 import crypto from '../tools/crypto';
 
 const user = ref(null);
 const done = ref(false);
+
+const $show = inject('$show');
 
 const password = reactive({
   oldP: null,
@@ -17,26 +19,25 @@ function changePassword() {
   const { oldP, newP, confirmP } = toRefs(password);
 
   if (newP.value !== confirmP.value) {
-    alert('密碼不相同');
+    $show('密碼不相同');
     return;
   }
 
   Promise.all([crypto.digestMessage(oldP.value), crypto.digestMessage(newP.value)])
          .then(([originalPassword, newPassword]) => {
-           console.log(originalPassword, newPassword);
            return userService.UpdateUserPassword({ originalPassword, newPassword });
          })
          .then(response => {
            switch (response.status) {
              case 200:
-              alert('成功更新密碼');
+              $show('成功更新密碼');
               return;
              case 404:
-              alert ('舊密碼錯誤');
+              $show ('舊密碼錯誤');
               oldP.value = null;
               return;
              default:
-              alert('系統錯誤');
+              $show('系統錯誤');
               return;
            }
          });

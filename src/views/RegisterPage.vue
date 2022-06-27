@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import router from '../router';
 import userService from '../services/userService';
 import crypto from '../tools/crypto';
@@ -11,6 +11,8 @@ const password = ref('');
 const nameValid = ref(false);
 const accountValid = ref(false);
 const passwordValid = ref(false);
+
+const $show = inject('$show');
 
 const valid = computed(() => nameValid.value && accountValid.value && password.value);
 
@@ -24,7 +26,7 @@ function register() {
           .then(pwd => userService.register({ account: account.value, password: pwd }))
           .then(response => {
             if (response.status === 200) {
-              alert('complete');
+              $show('complete');
 
               // 設定token
               localStorage.setItem('token', response.data.token);
@@ -33,11 +35,11 @@ function register() {
 
               return;
             } else if (response.status === 409) {
-              alert('conflict');
+              $show('conflict');
 
               return;
             } else {
-              alert('error');
+              $show('error');
 
               return;
             }
